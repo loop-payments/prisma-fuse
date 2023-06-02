@@ -1,20 +1,14 @@
 {
+  "extends": ["@tsconfig/esm/tsconfig.json", "@tsconfig/node18/tsconfig"],
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "importHelpers": false,
+    "moduleResolution": "nodenext",
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "paths": {
+      "#src/*": ["./src/*"]
+    },
+    "noImplicitAny": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.*"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

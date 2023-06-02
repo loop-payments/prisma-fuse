@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
-import { fuse } from './fuse';
 import { program } from 'commander';
+
+import { fuse } from '#src/fuse.js';
 
 program
   .name('prisma-fuse')
   .description('Fuse multiple Prisma schema files into one.')
   .version('0.0.1')
+  .option('--verbose', 'Verbose logging.', false)
   .option(
     '-b, --base-file <string>',
     'Base file usually with datasource & generator statement.',
@@ -27,7 +29,6 @@ program
     'Glob pattern of excluded files (e.g schema.prisma in migrations/generated folder).',
     'src/**/schema.prisma',
   )
-  .option('--verbose', 'Verbose logging.', false)
   .action(async (options) => {
     await fuse({
       baseFile: options.baseFile,

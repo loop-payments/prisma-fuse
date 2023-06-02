@@ -3,6 +3,15 @@ yarn-error.log
 dist
 .idea
 **/.DS_Store
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+tsconfig.tsbuildinfo
+.eslintcache
 
 # test output
 fixture/prisma/schema.prisma
