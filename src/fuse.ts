@@ -67,7 +67,7 @@ async function pipeFile(
   return new Promise<void>((resolve, reject) => {
     createReadStream(sourcePath)
       .on('end', resolve)
-      .on('error', (error) => reject(error))
+      .on('error', reject)
       .pipe(writableStream, { end: false });
   });
 }
