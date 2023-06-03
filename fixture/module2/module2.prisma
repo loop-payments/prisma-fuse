@@ -1,6 +1,8 @@
 // comment gets stripped
 /// comment does not get stripped
 model Module2Thing {
+  // comment gets stripped
+  /// comment does not get stripped
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

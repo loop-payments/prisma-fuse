@@ -2,6 +2,8 @@ import { Transform, type TransformCallback } from 'stream';
 
 export type LineTransformOptions = { stripComments: boolean };
 
+const COMMENT_REGEX = /^( )*(\/){2}[^\/]/;
+
 export class LineTransform extends Transform {
   readonly #stripComments: boolean;
 
@@ -11,6 +13,14 @@ export class LineTransform extends Transform {
     super({});
     this.#stripComments = options.stripComments;
     this.#buffer = null;
+  }
+
+  /**
+   * Strips lines that only contain a comment starting with `//`. If the line
+   * starts with `///` it will not be stripped.
+   */
+  #shouldStripCommentLine(line: string) {
+    return this.#stripComments && line.match(COMMENT_REGEX) != null;
   }
 
   _transform(
@@ -48,11 +58,7 @@ export class LineTransform extends Transform {
     // chunk. If this is the last chunk, it will be written on _flush().
     const lastIndex = lines.length - 1;
     for (let i = 0; i < lastIndex; i++) {
-      if (
-        !this.#stripComments ||
-        !lines[i].startsWith('//') ||
-        lines[i].startsWith('///')
-      ) {
+      if (!this.#shouldStripCommentLine(lines[i])) {
         this.push(lines[i]);
         this.push('\n');
       }
