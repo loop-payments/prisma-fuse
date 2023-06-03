@@ -12,8 +12,9 @@ Options:
   -V, --version                      output the version number
   -b, --base-file <string>           Base file usually with datasource & generator statement. (default: "src/prisma/base.prisma")
   -o, --output-file <string>         Output file. (default: "src/prisma/schema.prisma")
-  -s, --schema-file-glob <string>    Glob of all prisma files to include. (default: "src/**/*.prisma")
-  -e, --excluded-file-glob <string>  Glob pattern for excluded files (e.g schema.prisma in migrations / generated folder). (default: "src/**/schema.prisma")
+  -s, --schema-file-glob <string>    Glob pattern of Prisma schema files to include. (default: "src/**/*.prisma")
+  -e, --excluded-file-glob <string>  Glob pattern of excluded files (e.g schema.prisma in migrations/generated folder). (default: "src/**/schema.prisma")
+  --strip-comments                   Strip out lines that start with `//`. Lines that start with `///` will not be stripped. (default: false)
   --verbose                          Verbose logging. (default: false)
   -h, --help                         display help for command
 ```
