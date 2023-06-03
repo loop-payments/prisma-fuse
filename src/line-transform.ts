@@ -1,11 +1,13 @@
 import { Transform, type TransformCallback } from 'stream';
 
+export type LineTransformOptions = { stripComments: boolean };
+
 export class LineTransform extends Transform {
   readonly #stripComments: boolean;
 
   #buffer: string | null;
 
-  constructor(options: { stripComments: boolean }) {
+  constructor(options: LineTransformOptions) {
     super({});
     this.#stripComments = options.stripComments;
     this.#buffer = null;
