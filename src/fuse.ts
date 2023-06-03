@@ -1,5 +1,7 @@
 import { createWriteStream, createReadStream } from 'fs';
 
+import { pipeline } from 'stream/promises';
+
 import { glob } from 'glob';
 
 import {
@@ -74,9 +76,10 @@ async function pipeToWriteStream(
 ): Promise<void> {
   return new Promise<void>((resolve, reject) => {
     createReadStream(sourcePath)
-      .on('end', resolve)
       .on('error', reject)
       .pipe(new LineTransform(lineTransformOptions))
+      .on('error', reject)
+      .on('end', resolve)
       .pipe(writableStream, { end: false });
   });
 }
