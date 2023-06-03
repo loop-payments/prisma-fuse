@@ -9,6 +9,7 @@ describe('prisma-fuse', () => {
       outputFile: 'fixture/prisma/schema.prisma',
       schemaFileGlob: 'fixture/**/*.prisma',
       excludedFileGlob: 'fixture/**/schema.prisma',
+      stripComments: true,
       verbose: false,
     });
     const file = readFileSync('fixture/prisma/schema.prisma');
@@ -34,6 +35,7 @@ model User {
   posts     Post[]
 }
 
+/// comment does not get stripped
 model Module2Thing {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())

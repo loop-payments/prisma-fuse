@@ -25,7 +25,7 @@
     "style:prettier": "prettier --write src",
     "style:prettier:check": "prettier --check src",
     "test": "jest",
-    "test:cli": "./dist/cli.js -b 'fixture/prisma/base.prisma' -o 'fixture/prisma/schema.prisma' -s 'fixture/**/*.prisma' -e 'fixture/**/schema.prisma' --verbose"
+    "test:cli": "./dist/cli.js -b 'fixture/prisma/base.prisma' -o 'fixture/prisma/schema.prisma' -s 'fixture/**/*.prisma' -e 'fixture/**/schema.prisma' --strip-comments --verbose"
   },
   "devDependencies": {
     "@tsconfig/esm": "^1.0.3",

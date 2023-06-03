@@ -8,7 +8,6 @@ program
   .name('prisma-fuse')
   .description('Fuse multiple Prisma schema files into one.')
   .version('0.0.1')
-  .option('--verbose', 'Verbose logging.', false)
   .option(
     '-b, --base-file <string>',
     'Base file usually with datasource & generator statement.',
@@ -29,12 +28,19 @@ program
     'Glob pattern of excluded files (e.g schema.prisma in migrations/generated folder).',
     'src/**/schema.prisma',
   )
+  .option(
+    '--strip-comments',
+    'Strip out lines that start with `//`. Lines that start with `///` will not be stripped.',
+    false,
+  )
+  .option('--verbose', 'Verbose logging.', false)
   .action(async (options) => {
     await fuse({
       baseFile: options.baseFile,
       outputFile: options.outputFile,
       schemaFileGlob: options.schemaFileGlob,
       excludedFileGlob: options.excludedFileGlob,
+      stripComments: options.stripComments,
       verbose: options.verbose,
     });
   });
