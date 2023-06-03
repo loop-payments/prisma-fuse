@@ -1,7 +1,5 @@
 import { createWriteStream, createReadStream } from 'fs';
 
-import { pipeline } from 'stream/promises';
-
 import { glob } from 'glob';
 
 import {
