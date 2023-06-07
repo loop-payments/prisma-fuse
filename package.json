@@ -1,6 +1,6 @@
 {
   "name": "prisma-fuse",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fuse multiple Prisma schema files into one.",
   "repository": {
     "type": "git",
