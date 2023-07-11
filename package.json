@@ -1,5 +1,5 @@
 {
-  "name": "prisma-fuse",
+  "name": "@loop-payments/prisma-fuse",
   "version": "0.0.1",
   "description": "Fuse multiple Prisma schema files into one.",
   "repository": {

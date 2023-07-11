@@ -28,11 +28,12 @@ export async function fuse({
   stripComments: boolean;
   verbose: boolean;
 }): Promise<void> {
-  const timerLogMessage = `Fused Prisma schema files into ${outputFile}`;
-  console.time(timerLogMessage);
+  const start = performance.now();
 
-  const excludedFiles = glob.sync(excludedFileGlob);
-  const schemaFiles = glob.sync(schemaFileGlob);
+  const [excludedFiles, schemaFiles] = await Promise.all([
+    glob(excludedFileGlob),
+    glob(schemaFileGlob),
+  ]);
 
   const filesToFuse = schemaFiles.filter(
     (file) =>
@@ -50,7 +51,7 @@ export async function fuse({
   // Pipe the base file to the final output file.
   await pipeToWriteStream(baseFile, writeStream, { stripComments });
   if (verbose) {
-    console.log(`Fused ${baseFile} ✔`);
+    console.log(`Added base file: ${baseFile} ✔`);
   }
 
   // Pipe the schema files to the final output file with a `\n` separator.
@@ -58,13 +59,15 @@ export async function fuse({
     writeStream.write('\n');
     await pipeToWriteStream(filePath, writeStream, { stripComments });
     if (verbose) {
-      console.log(`Fused ${filePath} ✔`);
+      console.log(`Added file: ${filePath} ✔`);
     }
   }
 
   writeStream.end();
 
-  console.timeEnd(timerLogMessage);
+  const duration = (performance.now() - start).toPrecision(2);
+
+  console.log(`Fused Prisma schema files into ${outputFile} in ${duration}ms`);
 }
 
 async function pipeToWriteStream(
