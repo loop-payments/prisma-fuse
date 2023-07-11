@@ -35,12 +35,14 @@ export async function fuse({
     glob(schemaFileGlob),
   ]);
 
-  const filesToFuse = schemaFiles.filter(
-    (file) =>
-      !excludedFiles.includes(file) &&
-      !file.endsWith(baseFile) &&
-      !file.endsWith(outputFile),
-  );
+  const filesToFuse = schemaFiles
+    .filter(
+      (file) =>
+        !excludedFiles.includes(file) &&
+        !file.endsWith(baseFile) &&
+        !file.endsWith(outputFile),
+    )
+    .sort((a, b) => a.localeCompare(b));
 
   if (verbose) {
     console.log(`Fusing Prisma schema files into ${outputFile}...`);
@@ -65,9 +67,11 @@ export async function fuse({
 
   writeStream.end();
 
-  const duration = (performance.now() - start).toPrecision(2);
+  const duration = (performance.now() - start).toFixed(2);
 
-  console.log(`Fused Prisma schema files into ${outputFile} in ${duration}ms`);
+  console.log(
+    `Fused ${filesToFuse.length} Prisma schema files into ${outputFile} in ${duration}ms`,
+  );
 }
 
 async function pipeToWriteStream(
