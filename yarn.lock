@@ -814,6 +814,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@loop-payments/prisma-fuse@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@loop-payments/prisma-fuse@workspace:."
+  dependencies:
+    "@tsconfig/esm": ^1.0.3
+    "@tsconfig/node18": ^2.0.1
+    "@tsconfig/strictest": ^2.0.1
+    "@types/jest": ^29.2.5
+    "@types/node": ^20.4.1
+    "@types/pluralize": ^0.0.29
+    "@typescript-eslint/eslint-plugin": ^5.61.0
+    "@typescript-eslint/parser": ^5.59.7
+    commander: ^10.0.1
+    eslint: ^8.44.0
+    eslint-config-prettier: ^8.8.0
+    eslint-import-resolver-typescript: ^3.5.5
+    eslint-plugin-canonical: ^4.2.2
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-jest: ^27.2.1
+    glob: ^10.3.3
+    husky: ^8.0.3
+    jest: ^29.3.1
+    lint-staged: ^13.2.2
+    prettier: 2.8.8
+    ts-jest: ^29.1.0
+    typescript: ^5.0.4
+  bin:
+    prisma-fuse: dist/cli.js
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -4923,37 +4954,6 @@ __metadata:
   checksum: 4065356b558e6db25b4d41a01efb386935a6c06a0c9c104ef5ce59f2f476b8210edb8b3949b386e60ada0a6dc5ebcb2e6ccddc8c64dfd1a9943c3c3a9e7eaf89
   languageName: node
   linkType: hard
-
-"prisma-fuse@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "prisma-fuse@workspace:."
-  dependencies:
-    "@tsconfig/esm": ^1.0.3
-    "@tsconfig/node18": ^2.0.1
-    "@tsconfig/strictest": ^2.0.1
-    "@types/jest": ^29.2.5
-    "@types/node": ^20.4.1
-    "@types/pluralize": ^0.0.29
-    "@typescript-eslint/eslint-plugin": ^5.61.0
-    "@typescript-eslint/parser": ^5.59.7
-    commander: ^10.0.1
-    eslint: ^8.44.0
-    eslint-config-prettier: ^8.8.0
-    eslint-import-resolver-typescript: ^3.5.5
-    eslint-plugin-canonical: ^4.2.2
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-jest: ^27.2.1
-    glob: ^10.3.3
-    husky: ^8.0.3
-    jest: ^29.3.1
-    lint-staged: ^13.2.2
-    prettier: 2.8.8
-    ts-jest: ^29.1.0
-    typescript: ^5.0.4
-  bin:
-    prisma-fuse: dist/cli.js
-  languageName: unknown
-  linkType: soft
 
 "promise-inflight@npm:^1.0.1":
   version: 1.0.1
