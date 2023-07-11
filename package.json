@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/loop-payments/prisma-fuse.git"
   },
+  "homepage": "https://github.com/loop-payments/prisma-fuse#readme",
   "license": "MIT",
   "author": "engineering@loop.com",
   "type": "module",
