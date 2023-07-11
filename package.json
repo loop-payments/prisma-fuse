@@ -12,7 +12,7 @@
   "imports": {
     "#src/*": "./dist/*"
   },
-  "main": "dist/cli.js",
+  "bin": "dist/cli.js",
   "files": [
     "dist/**/*",
     "!dist/**/*.test.js"
