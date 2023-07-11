@@ -2,7 +2,7 @@ import { Transform, type TransformCallback } from 'stream';
 
 export type LineTransformOptions = { stripComments: boolean };
 
-const COMMENT_REGEX = /^( )*(\/){2}[^\/]/;
+const COMMENT_REGEX = /^\s*\/{2}([^\/]|$)/;
 
 export class LineTransform extends Transform {
   readonly #stripComments: boolean;

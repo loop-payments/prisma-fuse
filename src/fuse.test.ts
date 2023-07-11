@@ -38,15 +38,15 @@ model User {
   posts     Post[]
 }
 
-/// comment does not get stripped
-model Module2Thing {
-  /// comment does not get stripped
+model Module1Thing {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Module1Thing {
+/// comment does not get stripped
+model Module2Thing {
+  /// comment does not get stripped
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
