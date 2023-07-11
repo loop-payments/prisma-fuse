@@ -1,4 +1,4 @@
-# @loop-payments/prisma-fuse
+# prisma-fuse
 
 Fuse multiple Prisma schema files into one.
 
