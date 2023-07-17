@@ -51,7 +51,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "commander": "^10.0.1",
+    "commander": "^11.0.0",
     "glob": "^10.3.3"
   },
   "packageManager": "yarn@3.6.0"
