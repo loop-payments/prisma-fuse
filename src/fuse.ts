@@ -1,6 +1,7 @@
 import { createWriteStream, createReadStream } from 'fs';
 
 import { glob } from 'glob';
+import { basename } from 'path';
 
 import {
   LineTransform,
@@ -42,7 +43,7 @@ export async function fuse({
         !file.endsWith(baseFile) &&
         !file.endsWith(outputFile),
     )
-    .sort((a, b) => a.localeCompare(b));
+    .sort((a, b) => basename(a).localeCompare(basename(b)));
 
   if (verbose) {
     console.log(`Fusing Prisma schema files into ${outputFile}...`);
