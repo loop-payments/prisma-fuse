@@ -1,7 +1,8 @@
 import { createWriteStream, createReadStream } from 'fs';
 
-import { glob } from 'glob';
 import { basename } from 'path';
+
+import { glob } from 'glob';
 
 import {
   LineTransform,
