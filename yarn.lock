@@ -1946,6 +1946,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chance@npm:^1.1.11":
+  version: 1.1.11
+  resolution: "chance@npm:1.1.11"
+  checksum: 2e871fcc76584d274f860f0f25380b6ab547caf0d22d8b043a313be73d5c3db38941373241f83aeba049e7511f752f9746dc722a0f2b0182020d493c4e11da84
+  languageName: node
+  linkType: hard
+
 "char-regex@npm:^1.0.2":
   version: 1.0.2
   resolution: "char-regex@npm:1.0.2"
@@ -2501,10 +2508,11 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-canonical@npm:^4.2.2":
-  version: 4.6.0
-  resolution: "eslint-plugin-canonical@npm:4.6.0"
+  version: 4.15.1
+  resolution: "eslint-plugin-canonical@npm:4.15.1"
   dependencies:
     "@typescript-eslint/utils": ^6.1.0
+    chance: ^1.1.11
     debug: ^4.3.4
     eslint-import-resolver-typescript: ^3.5.3
     eslint-module-utils: ^2.7.4
@@ -2518,7 +2526,7 @@ __metadata:
     roarr: ^7.14.2
     ts-unused-exports: ^9.0.3
     xregexp: ^5.1.1
-  checksum: 2a5bcdb37aa8f831494d357228079a999d67ec61a53fb96ad926ce0e7adbe873f4c1813970eea26a093181e59c25f60e6bff5be9cfe1402b35e43809975c4c90
+  checksum: 109cf14982c0d28387b99712f9e4260062d5626e24c15d5a21955e349db999fce529acbd61053b0a4070d934653f371bf26654c3e7e830cbad4730e07bbb0cff
   languageName: node
   linkType: hard
 
