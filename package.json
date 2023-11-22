@@ -1,6 +1,6 @@
 {
   "name": "prisma-fuse",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fuse multiple Prisma schema files into one",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@tsconfig/esm": "^1.0.5",
-    "@tsconfig/node18": "^18.2.2",
+    "@tsconfig/node20": "^20.1.2",
     "@tsconfig/strictest": "^2.0.2",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.9.4",

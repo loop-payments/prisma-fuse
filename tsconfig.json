@@ -1,9 +1,10 @@
 {
-  "extends": ["@tsconfig/esm/tsconfig.json", "@tsconfig/node18/tsconfig"],
+  "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "nodenext",
+    "target": "ES2015",
     "outDir": "./dist",
     "rootDir": "./src",
+    "strict": true,
     "paths": {
       "#src/*": ["./src/*"]
     },
