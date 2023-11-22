@@ -24,7 +24,7 @@ export class LineTransform extends Transform {
   }
 
   _transform(
-    chunk: Buffer | string | unknown,
+    chunk: any,
     encoding: BufferEncoding,
     callback: TransformCallback,
   ) {
