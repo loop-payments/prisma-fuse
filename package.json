@@ -54,5 +54,5 @@
     "commander": "^11.1.0",
     "glob": "^10.3.10"
   },
-  "packageManager": "yarn@4.0.0"
+  "packageManager": "yarn@4.0.2"
 }
