@@ -7,7 +7,7 @@ import { fuse } from '#src/fuse.js';
 program
   .name('prisma-fuse')
   .description('Fuse multiple Prisma schema files into one.')
-  .version('0.0.5')
+  .version('0.0.6')
   .option(
     '-b, --base-file <string>',
     'Base file usually with datasource & generator statement.',
