@@ -15,6 +15,7 @@ Options:
   -s, --schema-file-glob <string>    Glob pattern of Prisma schema files to include. (default: "src/**/*.prisma")
   -e, --excluded-file-glob <string>  Glob pattern of excluded files (e.g schema.prisma in migrations/generated folder). (default: "src/**/schema.prisma")
   --strip-comments                   Strip out lines that start with `//`. Lines that start with `///` will not be stripped. (default: false)
+  --add-namespace-from-file-name     Adds a `/// @namespace` comment before each model. Compatible with https://github.com/samchon/prisma-markdown. (default: false)
   --verbose                          Verbose logging. (default: false)
   -h, --help                         display help for command
 ```

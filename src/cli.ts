@@ -35,8 +35,8 @@ program
   )
   .option(
     '--add-namespace-from-file-name',
-    'Adds a `/// @namespace` comment before each model. Compatible ' +
-      'with [prisma-markdown](https://github.com/samchon/prisma-markdown).',
+    'Adds a `/// @namespace` comment before each model. ' +
+      'Compatible with https://github.com/samchon/prisma-markdown.',
     false,
   )
   .option('--verbose', 'Verbose logging.', false)
