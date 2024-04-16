@@ -21,6 +21,7 @@ export async function fuse({
   schemaFileGlob,
   excludedFileGlob,
   stripComments,
+  addNamespaceFromFileName,
   verbose,
 }: {
   baseFile: string;
@@ -28,6 +29,7 @@ export async function fuse({
   schemaFileGlob: string;
   excludedFileGlob: string;
   stripComments: boolean;
+  addNamespaceFromFileName: boolean;
   verbose: boolean;
 }): Promise<void> {
   const start = performance.now();
@@ -61,7 +63,12 @@ export async function fuse({
   // Pipe the schema files to the final output file with a `\n` separator.
   for (const filePath of filesToFuse) {
     writeStream.write('\n');
-    await pipeToWriteStream(filePath, writeStream, { stripComments });
+    await pipeToWriteStream(filePath, writeStream, {
+      stripComments,
+      namespace: addNamespaceFromFileName
+        ? getNamespaceFromFilePath(filePath)
+        : undefined,
+    });
     if (verbose) {
       console.log(`Added file: ${filePath} ✔`);
     }
@@ -89,4 +96,12 @@ async function pipeToWriteStream(
       .on('end', resolve)
       .pipe(writableStream, { end: false });
   });
+}
+
+function getNamespaceFromFilePath(filePath: string) {
+  return initCap(basename(filePath).replace('.prisma', ''));
+}
+
+function initCap(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }

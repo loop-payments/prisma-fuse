@@ -10,6 +10,7 @@ describe('prisma-fuse', () => {
       schemaFileGlob: 'fixture/**/*.prisma',
       excludedFileGlob: 'fixture/**/schema.prisma',
       stripComments: true,
+      addNamespaceFromFileName: true,
       verbose: false,
     });
     const file = readFileSync('fixture/prisma/schema.prisma');
@@ -38,6 +39,7 @@ model User {
   posts     Post[]
 }
 
+/// @namespace Module1
 model Module1Thing {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
@@ -45,6 +47,7 @@ model Module1Thing {
 }
 
 /// comment does not get stripped
+/// @namespace Module2
 model Module2Thing {
   /// comment does not get stripped
   id        Int      @id @default(autoincrement())

@@ -1,17 +1,22 @@
 import { Transform, type TransformCallback } from 'stream';
 
-export type LineTransformOptions = { stripComments: boolean };
+export type LineTransformOptions = {
+  stripComments: boolean;
+  namespace?: string;
+};
 
 const COMMENT_REGEX = /^\s*\/{2}([^\/]|$)/;
 
 export class LineTransform extends Transform {
   readonly #stripComments: boolean;
+  readonly #namespace: string | undefined;
 
   #buffer: string | null;
 
   constructor(options: LineTransformOptions) {
     super({});
     this.#stripComments = options.stripComments;
+    this.#namespace = options.namespace;
     this.#buffer = null;
   }
 
@@ -25,7 +30,7 @@ export class LineTransform extends Transform {
 
   _transform(
     chunk: any,
-    encoding: BufferEncoding,
+    _encoding: BufferEncoding,
     callback: TransformCallback,
   ) {
     // No line transformations required
@@ -59,6 +64,9 @@ export class LineTransform extends Transform {
     const lastIndex = lines.length - 1;
     for (let i = 0; i < lastIndex; i++) {
       if (!this.#shouldStripCommentLine(lines[i])) {
+        if (this.#namespace && lines[i].startsWith('model')) {
+          this.push(`/// @namespace ${this.#namespace}\n`);
+        }
         this.push(lines[i]);
         this.push('\n');
       }

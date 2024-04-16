@@ -33,6 +33,12 @@ program
     'Strip out lines that start with `//`. Lines that start with `///` will not be stripped.',
     false,
   )
+  .option(
+    '--add-namespace-from-file-name',
+    'Adds a `/// @namespace` comment before each model. Compatible ' +
+      'with [prisma-markdown](https://github.com/samchon/prisma-markdown).',
+    false,
+  )
   .option('--verbose', 'Verbose logging.', false)
   .action(async (options) => {
     await fuse({
@@ -41,6 +47,7 @@ program
       schemaFileGlob: options.schemaFileGlob,
       excludedFileGlob: options.excludedFileGlob,
       stripComments: options.stripComments,
+      addNamespaceFromFileName: options.addNamespaceFromFileName,
       verbose: options.verbose,
     });
   });
