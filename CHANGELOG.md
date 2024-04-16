@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5 (2024-04-16)
+
+- Create new option `--add-namespace-from-file-name`
+
 ## 0.0.3 (2023-11-22)
 
 - Upgrade all dependencies
