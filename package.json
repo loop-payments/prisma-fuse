@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "commander": "^13.1.0",
-    "glob": "^10.3.10"
+    "glob": "^11.0.2"
   },
   "packageManager": "yarn@4.1.1"
 }
