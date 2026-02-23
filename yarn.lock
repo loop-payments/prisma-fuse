@@ -1066,9 +1066,9 @@ __metadata:
   linkType: hard
 
 "@tsconfig/node20@npm:^20.1.2":
-  version: 20.1.5
-  resolution: "@tsconfig/node20@npm:20.1.5"
-  checksum: 10/6d689785f7b6ffd09d2cd0565290235ddc650932f6c110701dd38732b3c0b57ba039a3663268ae4a16b855d55ec2fbd48a53910e5a5fc7f196caaa4074dd0a53
+  version: 20.1.9
+  resolution: "@tsconfig/node20@npm:20.1.9"
+  checksum: 10/3d66cd9942175e477cb6b68d06d9523089fca32de8e63ef09433e2dc89fb737276b196700ee48e5991396a0ee35ba527a86599cf3c80310d6c569312ff79205e
   languageName: node
   linkType: hard
 
